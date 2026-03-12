@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# =====================================
+# ALX Pro - Linux Server Setup Script
+# Hardening básico e configuração inicial
+# =====================================
+
+echo "====================================="
+echo " ALX Pro - Configuração de Servidor "
+echo "====================================="
+
+sleep 1
+
+echo "Atualizando repositórios do sistema..."
+sudo apt update -y
+
+echo "Atualizando pacotes instalados..."
+sudo apt upgrade -y
+
+echo "Instalando ferramentas essenciais..."
+sudo apt install -y curl git ufw
+
+echo "Configurando firewall (UFW)..."
+sudo ufw allow OpenSSH
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw enable
+
+echo "Firewall configurado:"
+sudo ufw status
+
+echo "Configuração básica concluída."
+echo "Servidor preparado pela ALX Pro."
